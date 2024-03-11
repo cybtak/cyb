@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Registration</title>
     <link rel="stylesheet" href="styles.css">
-</head>
-<body>
     <style>
         /* styles.css */
 
@@ -28,9 +26,11 @@
             margin-top: 100px; /* Adjust the margin-top value to position the form vertically */
         }
     </style>
+</head>
+<body>
     <div class="container">
         <h2>User Registration Form</h2>
-        <form id="registrationForm">
+        <form id="registrationForm" onsubmit="return validateForm()">
             <div class="form-group">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name">
@@ -73,6 +73,35 @@
             <p>If you already have an account, <a href="login.html">login</a></p>
         </form>
     </div>
+
+    <script>
+        function validateForm() {
+            var emailInput = document.getElementById('email');
+            var emailValue = emailInput.value;
+
+            var passwordInput = document.getElementById('password');
+            var passwordValue = passwordInput.value;
+
+            // Regular expression for basic email format validation
+            var emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailFormat.test(emailValue)) {
+                alert('Invalid email format. Please enter a valid email address.');
+                return false; // Prevent form submission
+            }
+
+            // Check if the password meets the minimum length requirement
+            if (passwordValue.length < 8) {
+                alert('Password must be at least 8 characters long.');
+                return false; // Prevent form submission
+            }
+
+            // Continue with form submission or other actions
+            // For example: document.forms["registrationForm"].submit();
+            return true;
+        }
+    </script>
+
     <script type="module" src="registration.js"></script>
 </body>
 </html>
