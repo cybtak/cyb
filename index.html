@@ -184,6 +184,39 @@
       left: 0;
 }
 
+.overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        /* Styles for the modal */
+        .modal {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            text-align: center;
+        }
+
+        /* Close button style */
+        .close-btn {
+            cursor: pointer;
+            color: #333;
+            font-size: 20px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
     </style>
      
 </head>
@@ -194,12 +227,34 @@
             <div class="top-right-buttons">
                 <a href="login.html" class="login-button">Login</a>
                 <a href="registration.html" class="register-button">Register</a>
+                <a href="#" class="register-button" id="agentLink">Agent</a>
+                <div class="overlay" id="agentOverlay">
+                    <div class="modal">
+                        <span class="close-btn" onclick="closeAgentModal()">&times;</span>
+                        <p><font color="black">Contact admin for agent login.</p>
+                        <p>Admin's <a href="https://wa.me/+918111811810">WhatsApp</a> </p>
+                        <p>If you want to work in SIM services, contact the admin.</p></font>
+                        <p><a href="index.html" class="register-button" id="agentLink">close</a></p>
+                    </div>
+                </div>
+                <script>
+                    document.getElementById("agentLink").addEventListener("click", function () {
+                        // Show the overlay and modal
+                        document.getElementById("agentOverlay").style.display = "flex";
+                    });
+            
+                    // Function to close the modal
+                    function closeAgentModal() {
+                        document.getElementById("agentOverlay").style.display = "none";
+                    }
+                </script>
             </div>
+            
     
     
             <h1 class="logo"> SIM Services</h1>
             <div class="nav">
-                <a href="main_bfr_login.html">Home</a>
+                <a href="index.html">Home</a>
                 <a href="#" onclick="showPopup('Please register/login first before accessing this feature.')">Buy a New SIM</a>
                 <a href="#" onclick="showPopup('Please register/login first before accessing this feature.')">Buy a Fancy Number</a>
                 <a href="#" onclick="showPopup('Please register/login first before accessing this feature.')">Port Your SIM</a>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Registration</title>
@@ -75,6 +76,12 @@
     </div>
 
     <script>
+        async function checkIfEmailExists(email) {
+            const emailExistsRef = ref(database, 'Users');
+            const snapshot = await get(emailExistsRef.orderByChild('Email Address').equalTo(email).limitToFirst(1));
+            return snapshot.exists();
+        }
+
         function validateForm() {
             var emailInput = document.getElementById('email');
             var emailValue = emailInput.value;
@@ -91,14 +98,22 @@
             }
 
             // Check if the password meets the minimum length requirement
-            if (passwordValue.length < 8) {
-                alert('Password must be at least 8 characters long.');
+            if (passwordValue.length < 6) {
+                alert('Password must be at least 6 characters long.');
                 return false; // Prevent form submission
             }
 
-            // Continue with form submission or other actions
-            // For example: document.forms["registrationForm"].submit();
-            return true;
+            // Check if the email already exists in the database
+            checkIfEmailExists(emailValue).then((emailExists) => {
+                if (emailExists) {
+                    alert('Email already exists. Please use a different email address.');
+                } else {
+                    // Continue with form submission or other actions
+                    document.forms["registrationForm"].submit();
+                }
+            });
+
+            return false; // Prevent default form submission
         }
     </script>
 
