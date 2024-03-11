@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Fancy Numbers</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .number-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .number-card:hover {
+            transform: scale(1.05);
+        }
+
+        h2 {
+            color: #160303;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #555;
+            margin: 10px 0;
+        }
+
+        h1 {
+            color: #160303;
+            text-align: center;
+        }
+
+        .buy-now-card {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .buy-now-card:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="gallery">
+        <h1>Available Numbers</h1>
+
+        <div class="number-card" onclick="redirectToFancyNo('8111811810')">
+            <h2>8111811810</h2>
+            <p>Price: $500</p>
+            <p>Uniqueness: Special repeating pattern</p>
+        </div>
+
+        <div class="number-card" onclick="redirectToFancyNo('9995777919')">
+            <h2>9995777919</h2>
+            <p>Price: $750</p>
+            <p>Uniqueness: Triple repeating digits</p>
+        </div>
+
+        <div class="number-card" onclick="redirectToFancyNo('9995333919')">
+            <h2>9995333919</h2>
+            <p>Price: $600</p>
+            <p>Uniqueness: Double repeating digits</p>
+        </div>
+
+        <div class="number-card" onclick="redirectToFancyNo('9946916916')">
+            <h2>9946916916</h2>
+            <p>Price: $800</p>
+            <p>Uniqueness: Palindrome number</p>
+        </div>
+
+        <div class="number-card" onclick="redirectToFancyNo('9072916916')">
+            <h2>9072916916</h2>
+            <p>Price: $700</p>
+            <p>Uniqueness: Sequential digits</p>
+        </div>
+
+        <div class="buy-now-card" onclick="redirectToFancyNo('click')">
+            <h2>Click Here to Buy</h2>
+            <p>If you like anything, be unique always!</p>
+        </div>
+    </div>
+
+    <script>
+        function redirectToFancyNo(number) {
+            // Redirect to fancyno.html with the selected number
+            window.location.href = `fancyno.html?number=${number}`;
+        }
+    </script>
+
+</body>
+</html>

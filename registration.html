@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <style>
+        /* styles.css */
+
+        body {
+            background-image: url('image.png');
+            /* Replace 'path/to/your/background-image.jpg' with the actual path to your image file */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif; /* You can adjust the font-family as needed */
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 300px;
+            margin: auto;
+            text-align: center;
+            margin-top: 100px; /* Adjust the margin-top value to position the form vertically */
+        }
+    </style>
+    <div class="container">
+        <h2>User Registration Form</h2>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword">
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address (Kerala only):</label>
+                <input type="text" id="address" name="address">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number (India only):</label>
+                <input type="tel" id="phone" name="phone" required pattern="[6-9]{1}[0-9]{9}">
+            </div>
+
+            <div class="form-group">
+                <label for="pincode">Pincode:</label>
+                <input type="text" id="pincode" name="pincode" required pattern="[0-9]{6}">
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="REGISTER" id="reg_btn">
+            </div>
+
+            <p>If you already have an account, <a href="login.html">login</a></p>
+        </form>
+    </div>
+    <script type="module" src="registration.js"></script>
+</body>
+</html>

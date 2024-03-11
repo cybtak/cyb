@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sim Request Form</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('bg1.jpg'); /* Replace 'background-image.jpg' with your image file */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        div {
+            background-color: rgba(220, 211, 150, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            width: 400px;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            text-align: center;
+            color: #160303;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #090909;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        select {
+            appearance: none;
+            padding: 12px;
+            background-color: #f9f9f9;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        select::after {
+            content: '\25BC'; /* Unicode character for down arrow */
+            font-size: 14px;
+            color: #555555;
+            position: absolute;
+            top: 50%;
+            right: 12px;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #ffffff;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <center><h2>Sim Request</h2></center>
+
+        <!-- Your form elements -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+    
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required>
+    
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required>
+    
+        <label for="pincode">Pincode:</label>
+        <input type="text" id="pincode" name="pincode" required>
+    
+        <label for="requestType">Request Type:</label>
+        <select id="requestType" name="requestType" required>
+            <option value="" disabled selected>Select</option>
+            <option value="new_sim">New SIM</option>
+            <option value="port_number">Port Number</option>
+            <option value="duplicate_sim">Duplicate SIM</option>
+        </select>
+    
+        <label for="telecomProvider">Telecom Provider:</label>
+        <select id="telecomProvider" name="telecomProvider" required>
+            <option value="" disabled selected>Select</option>
+            <option value="vi">Vodafone Idea (Vi)</option>
+            <option value="airtel">Airtel</option>
+            <option value="jio">Jio</option>
+            <option value="bsnl">BSNL</option>
+        </select>
+    
+        <center><button id="send-btn">Submit</button></center>
+    </div>
+    <script type="module" src="reqform.js"></script>
+</body>
+</html>
+
+   

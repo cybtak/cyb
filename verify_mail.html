@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Email</title>
+    <link href="verify_mail.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('bg1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #box {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        #head {
+            font-size: 24px;
+            color: #333;
+        }
+
+        #description {
+            color: #555;
+            margin-top: 10px;
+        }
+
+        #verify {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        #resend {
+            color: #007BFF;
+            text-decoration: underline;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <img src="mailv.jpg" width="170px" height="100px">
+        <p id="head">Verify Email Address</p>
+        <p id="description">An Email Verification Link was sent to your Registered Email Address. Open your Gmail and click on that link to verify your Proware Account Email and click the below button</p>
+        <button id="verify">I have Verified</button>
+        <p id="resend">Resend Verification Mail</p>
+    </div>
+    <script type="module" src="mail_verify.js"></script>
+</body>
+</html>

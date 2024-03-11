@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian SIM Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('bg3.jpg') no-repeat center center/cover;
+            background-color: #d4d2bf;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background-color: #121212;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        .logo {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        .nav {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .nav a {
+            color: #bbb;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #ff7e5f;
+        }
+
+        .hero {
+            background: url('banner4.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 200px 0;
+            animation: fadeIn 2s ease;
+            
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #343332;
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #3c3cd1;
+        }
+
+        .services {
+            padding: 50px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .service {
+            text-align: center;
+            margin: 20px 0;
+            background-color: #e6e5e0;
+            color: #000;
+            padding: 20px;
+            border-radius: 5px;
+            width: 45%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service img {
+            width: 80%;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .service h2 {
+            margin: 0;
+        }
+
+        .footer {
+            background-color: #121212;
+            color: #bbb;
+            text-align: center;
+            padding: 15px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .animated-image {
+  width: 200px; /* Adjust the width as needed */
+  height: 200px;
+  position: relative;
+  animation: fade 2s linear forwards;
+}
+
+@keyframes moveRight {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: 100px; /* Adjust the distance to move to the right */
+    }
+}
+
+@keyframes fallAndStay {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+  
+  .falling-text {
+    animation: fallAndStay 2s ease-in-out forwards;
+    position: relative;
+    top: 0;
+  }
+
+  /* Add this CSS to your existing styles */
+.top-right-buttons {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+.login-button, .register-button {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background-color: #3b37ca;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover, .register-button:hover {
+    background-color: #e36653;
+}
+.img{
+      float: left;
+      width: 650px;
+      position: relative;
+      position:absolute;
+      top: 1;
+      left: 0;
+}
+
+    </style>
+     
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="top-right-buttons">
+                <a href="login.html" class="login-button">Login</a>
+                <a href="registration.html" class="register-button">Register</a>
+            </div>
+    
+    
+            <h1 class="logo"> SIM Services</h1>
+            <div class="nav">
+                <a href="main_bfr_login.html">Home</a>
+                <a href="#" onclick="showPopup('Please register/login first before accessing this feature.')">Buy a New SIM</a>
+                <a href="#" onclick="showPopup('Please register/login first before accessing this feature.')">Buy a Fancy Number</a>
+                <a href="#" onclick="showPopup('Please register/login first before accessing this feature.')">Port Your SIM</a>
+                <a href="#" onclick="showPopup('Please register/login first before accessing this feature.')">Request a Duplicate SIM</a>
+            </div>
+            
+            <script>
+                function showPopup(url) {
+                    // Replace this with your popup logic
+                    alert(" " + url);
+                    // If you want to navigate after showing the popup, you can use window.location.href
+                    // window.location.href = url;
+                }
+            </script>
+            
+        </div>
+    </div>
+
+  <div class="hero">
+    
+
+        <div class="container">
+            <img src="#"  class="img">
+            <h1><font color="red"><b><i>One Place, All SIM Operators</i></b></h1>
+                <h3>Find the best SIM card deals tailored for you. Fast, reliable, and convenient services.</h3>
+                <a href="registration.html" class="cta-button">Get Started</a>
+               
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="services">
+            <div class="service">
+                <div class="message-box" onclick="displayMessage('registration.html');">
+                    <img src="sim.jpeg" alt="Buy New SIM">
+                    <h2 id="newsim">BUY A NEW SIM</h2>
+                    <p>Explore our range of SIM cards with exclusive plans and offers. Stay connected with high-speed internet and unlimited calls.</p>
+                </div>
+            </div>
+            
+            <div class="service">
+                <div class="message-box" onclick="displayMessage('registration.html');">
+                    <img src="fancy.jpeg" alt="Fancy Number">
+                    <h2>BUY A FANCY NUMBER</h2>
+                    <p>Stand out with a unique phone number. Choose from our collection of fancy numbers to make a lasting impression.</p>
+                </div>
+            </div>
+            
+            <div class="service">
+                <div class="message-box" onclick="displayMessage('registration.html');">
+                    <img src="port.jpeg" alt="Port Your SIM">
+                    <h2>PORT YOUR SIM</h2>
+                    <p>Switch hassle-free to a better network without changing your number. Experience seamless service and uninterrupted connectivity.</p>
+                </div>
+            </div>
+            
+            <div class="service">
+                <div class="message-box" onclick="displayMessage('registration.html');">
+                    <img src="duplicate.jpeg" alt="Duplicate SIM">
+                    <h2>REQUEST A DUPLICATE SIM</h2>
+                    <p>Lost your SIM card? No worries. Request a duplicate SIM card quickly and securely. Your connection, your way.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function displayMessage(url) {
+            alert("Please register/login first before accessing this feature.");
+            // Optionally, you can redirect to the registration page using window.location.href
+            // window.location.href = url;
+        }
+    </script>
+    <footer class="footer">
+        <div class="container">
+            <p>Contact us at: contact@example.com | Phone: +918111811810</p>
+        </div>
+    </footer>
+</body>
+</html>

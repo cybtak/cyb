@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checking...</title>
+    <style>
+        *{
+            padding:0px;
+    margin:0px;
+    box-sizing: border-box;
+        }
+        #background{
+    background-color:#d5fff4;
+    width:100vw;
+    height:100vh;
+    padding: 15px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#check{
+    color:#000000;
+    font-size:14px;
+    margin-top:15px;
+    font-weight:bold;
+}
+.loading {
+  text-align: center;
+  
+}
+
+.loading span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: #4CAF50;
+  animation: loading 0.8s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+.loading span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loading span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+@keyframes loading {
+  0% {
+    transform: scale(0);
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
+
+    </style>
+</head>
+<body>
+    
+    <div id="background">
+        <div id="load" class="loading">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+        <p id="check">Checking Email Is Verified Or Not...</p>
+        
+        
+    </div>
+    
+    
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+
+      import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+      
+      
+      const firebaseConfig = {
+    apiKey: "AIzaSyAKfH8Z1GAt7kR7pizPrZ_Xfz_Th1mHYfU",
+    authDomain: "simservicesind.firebaseapp.com",
+    projectId: "simservicesind",
+    storageBucket: "simservicesind.appspot.com",
+    messagingSenderId: "133180748200",
+    appId: "1:133180748200:web:b03dd7408e1bd17fd16d9d",
+    measurementId: "G-P1BGZJ8QJV"
+  };
+  
+  
+  // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      console.log(app);
+      
+      const auth = getAuth();
+    
+    const user = auth.currentUser;
+      
+      var text = document.getElementById("check");
+      var loading = document.getElementById("load");
+      
+      onAuthStateChanged(auth, (user) => {
+  if (user) {
+  
+  var emailVerified = user.emailVerified;
+    loading.style.display = "none";
+    
+    if(emailVerified){
+        text.innerHTML = "Email Verified ! , Redirecting...";
+        setTimeout(() => {
+    window.location.href = "../main.html";
+    
+  }, 1000);
+        
+    }else{
+        text.innerHTML = "Email Not Verified Please Verify!";
+        
+        setTimeout(() => {
+    
+    history.back();
+  }, 2000);
+        
+    }
+    
+  } else {
+    
+    text.innerHTML = "Something Went Wrong !";
+    
+    setTimeout(() => {
+    
+    history.back();
+  }, 2000);
+    
+  }
+});
+        
+        
+        
+    </script>
+</body>
+</html>

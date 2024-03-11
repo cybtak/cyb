@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <style>
+        /* styles.css */
+
+body {
+    background-image: url('image.png'); /* Replace 'path/to/your/background-image.jpg' with the actual path to your image file */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif; /* You can adjust the font-family as needed */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 300px;
+    margin: auto;
+    text-align: center;
+    margin-top: 100px; /* Adjust the margin-top value to position the form vertically */
+}
+
+    </style>
+
+    <div class="container">
+        <h2>User Login</h2>
+        
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Login" id="login_btn">
+            </div>
+            <p id="successMessage"></p>
+            Dont have an account?<br><a href="registration.html">register</a>
+    </div>
+ 
+</body>
+<script type="module" src="login_js.js"></script>
+</html>
