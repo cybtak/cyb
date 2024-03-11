@@ -1,0 +1,9 @@
+const firebaseConfig = {
+    apiKey: "AIzaSyAKfH8Z1GAt7kR7pizPrZ_Xfz_Th1mHYfU",
+    authDomain: "simservicesind.firebaseapp.com",
+    projectId: "simservicesind",
+    storageBucket: "simservicesind.appspot.com",
+    messagingSenderId: "133180748200",
+    appId: "1:133180748200:web:b03dd7408e1bd17fd16d9d",
+    measurementId: "G-P1BGZJ8QJV"
+  };
