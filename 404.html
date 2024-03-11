@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Page Not Found</title>
+    <style>
+        body {
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+        }
+
+        .error-container {
+            text-align: center;
+            padding-top: 20%;
+        }
+
+        .error-container h1 {
+            font-size: 80px;
+            color: #333;
+        }
+
+        .error-container p {
+            color: #666;
+            font-size: 20px;
+        }
+
+        .error-container a {
+            display: inline-block;
+            margin-top: 20px;
+            color: #fff;
+            background-color: #007BFF;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+
+        .error-container a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        setTimeout(() => {
+            window.location.href = "/";
+        }, 3000); // Redirect after 3 seconds
+    </script>
+</head>
+<body>
+    <div class="error-container">
+        <h1>404</h1>
+        <p>Oops! The page you're looking for is not here.</p>
+        <a href="/">Go Back to Home</a>
+    </div>
+</body>
+</html>
