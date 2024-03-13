@@ -53,9 +53,8 @@
             background: url('banner4.jpg') no-repeat center center/cover;
             color: white;
             text-align: center;
-            padding: 200px 0;
+            padding: 100px 20px; /* Adjust padding for smaller screens */
             animation: fadeIn 2s ease;
-            
         }
 
         @keyframes fadeIn {
@@ -84,7 +83,7 @@
         }
 
         .services {
-            padding: 50px 0;
+            padding: 50px 20px; /* Adjust padding for smaller screens */
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
@@ -97,19 +96,15 @@
             color: #000;
             padding: 20px;
             border-radius: 5px;
-            width: 45%;
-            position: relative;
-            overflow: hidden;
+            width: calc(45% - 40px); /* Adjust width for smaller screens */
+            max-width: 300px; /* Limit maximum width for better responsiveness */
         }
 
         .service img {
-            width: 80%;
+            width: 100%;
+            max-width: 200px; /* Adjust max-width for smaller screens */
             border-radius: 5px;
             margin-bottom: 20px;
-        }
-
-        .service h2 {
-            margin: 0;
         }
 
         .footer {
@@ -121,70 +116,73 @@
             bottom: 0;
             width: 100%;
         }
+
         .animated-image {
-  width: 200px; /* Adjust the width as needed */
-  height: 200px;
-  position: relative;
-  animation: fade 2s linear forwards;
-}
+            width: 200px; /* Adjust the width as needed */
+            height: 200px;
+            position: relative;
+            animation: fade 2s linear forwards;
+        }
 
-@keyframes moveRight {
-    0% {
-        left: 0;
-    }
-    100% {
-        left: 100px; /* Adjust the distance to move to the right */
-    }
-}
+        @keyframes moveRight {
+            0% {
+                left: 0;
+            }
 
-@keyframes fallAndStay {
-    0% {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
+            100% {
+                left: 100px; /* Adjust the distance to move to the right */
+            }
+        }
 
-  
-  .falling-text {
-    animation: fallAndStay 2s ease-in-out forwards;
-    position: relative;
-    top: 0;
-  }
+        @keyframes fallAndStay {
+            0% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
 
-  /* Add this CSS to your existing styles */
-.top-right-buttons {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-}
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
 
-.login-button, .register-button {
-    color: #fff;
-    text-decoration: none;
-    margin-left: 20px;
-    padding: 10px 15px;
-    border-radius: 10px;
-    background-color: #3b37ca;
-    transition: background-color 0.3s ease;
-}
+        .falling-text {
+            animation: fallAndStay 2s ease-in-out forwards;
+            position: relative;
+            top: 0;
+        }
 
-.login-button:hover, .register-button:hover {
-    background-color: #e36653;
-}
-.img{
-      float: left;
-      width: 650px;
-      position: relative;
-      position:absolute;
-      top: 1;
-      left: 0;
-}
+        /* Add this CSS to your existing styles */
+        .top-right-buttons {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+        }
 
-.overlay {
+        .login-button,
+        .register-button {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            padding: 10px 15px;
+            border-radius: 10px;
+            background-color: #3b37ca;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-button:hover,
+        .register-button:hover {
+            background-color: #e36653;
+        }
+
+        .img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto; /* Center the image horizontally */
+        }
+
+        .overlay {
             display: none;
             position: fixed;
             top: 0;
@@ -216,9 +214,8 @@
             top: 10px;
             right: 10px;
         }
-
     </style>
-     
+
 </head>
 
 <body>
@@ -242,16 +239,14 @@
                         // Show the overlay and modal
                         document.getElementById("agentOverlay").style.display = "flex";
                     });
-            
+
                     // Function to close the modal
                     function closeAgentModal() {
                         document.getElementById("agentOverlay").style.display = "none";
                     }
                 </script>
             </div>
-            
-    
-    
+
             <h1 class="logo"> SIM Services</h1>
             <div class="nav">
                 <a href="index.html">Home</a>
@@ -260,7 +255,7 @@
                 <a href="#" onclick="showPopup('Please register/login first before accessing this feature.')">Port Your SIM</a>
                 <a href="#" onclick="showPopup('Please register/login first before accessing this feature.')">Request a Duplicate SIM</a>
             </div>
-            
+
             <script>
                 function showPopup(url) {
                     // Replace this with your popup logic
@@ -269,19 +264,16 @@
                     // window.location.href = url;
                 }
             </script>
-            
+
         </div>
     </div>
 
-  <div class="hero">
-    
-
+    <div class="hero">
         <div class="container">
-            <img src="#"  class="img">
+            <img src="#" class="img">
             <h1><font color="red"><b><i>One Place, All SIM Operators</i></b></h1>
-                <h3>Find the best SIM card deals tailored for you. Fast, reliable, and convenient services.</h3>
-                <a href="registration.html" class="cta-button">Get Started</a>
-               
+            <h3>Find the best SIM card deals tailored for you. Fast, reliable, and convenient services.</h3>
+            <a href="registration.html" class="cta-button">Get Started</a>
         </div>
     </div>
 
@@ -294,7 +286,7 @@
                     <p>Explore our range of SIM cards with exclusive plans and offers. Stay connected with high-speed internet and unlimited calls.</p>
                 </div>
             </div>
-            
+
             <div class="service">
                 <div class="message-box" onclick="displayMessage('registration.html');">
                     <img src="fancy.jpeg" alt="Fancy Number">
@@ -302,7 +294,7 @@
                     <p>Stand out with a unique phone number. Choose from our collection of fancy numbers to make a lasting impression.</p>
                 </div>
             </div>
-            
+
             <div class="service">
                 <div class="message-box" onclick="displayMessage('registration.html');">
                     <img src="port.jpeg" alt="Port Your SIM">
@@ -310,7 +302,7 @@
                     <p>Switch hassle-free to a better network without changing your number. Experience seamless service and uninterrupted connectivity.</p>
                 </div>
             </div>
-            
+
             <div class="service">
                 <div class="message-box" onclick="displayMessage('registration.html');">
                     <img src="duplicate.jpeg" alt="Duplicate SIM">
@@ -320,7 +312,7 @@
             </div>
         </div>
     </div>
-    
+
     <script>
         function displayMessage(url) {
             alert("Please register/login first before accessing this feature.");
@@ -330,8 +322,9 @@
     </script>
     <footer class="footer">
         <div class="container">
-            <p>Contact us: simservicesind@gmail.com | Phone: +918111811810</p>
+            <p>Contact us: nyzsimservices@gmail.com | Phone: +918111811810</p>
         </div>
     </footer>
 </body>
+
 </html>
