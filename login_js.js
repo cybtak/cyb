@@ -71,3 +71,65 @@ loginBtn.addEventListener("click", function () {
             });
     }
 });
+
+
+// ... (your existing code)
+
+loginBtn.addEventListener("click", function () {
+    console.log("Button Clicked");
+    const emailInput = document.getElementById("email").value;
+    const passInput = document.getElementById("password").value;
+
+    if (emailInput == "") {
+        alert("Enter Email");
+    } else if (passInput == "") {
+        alert("Enter Password");
+    } else {
+        console.log("Login Code Here");
+
+        // Login Code 
+        signInWithEmailAndPassword(auth, emailInput, passInput)
+            .then((userCredential) => {
+                // User signed in successfully
+                const user = userCredential.user;
+                console.log('User signed in:', user.uid);
+
+                // Check if the user exists in the database
+                const userRef = ref(database, 'users/' + user.uid);
+                get(child(userRef, 'email'))
+                    .then((snapshot) => {
+                        if (snapshot.exists()) {
+                            // User exists in the database
+                            const successMessage = "Login successful";
+                            successMessageElement.textContent = successMessage;
+                            successMessageElement.style.color = "green";
+                            successMessageElement.style.fontWeight = "bold";
+                            successMessageElement.style.fontSize = "18px";
+                            successMessageElement.style.display = "block";
+
+                            // Redirect to main.html after a delay
+                            setTimeout(() => {
+                                window.location.href = 'admin.html';
+                            }, 2000);
+                        } else {
+                            // User does not exist in the database
+                            alert("User does not exist. Please check your credentials.");
+                        }
+                    })
+                    .catch((error) => {
+                        console.error('Error checking user in the database:', error.message);
+                    });
+            })
+            .catch((error) => {
+                // Handle errors
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.error('Error signing in:', errorCode, errorMessage);
+
+                // Display error message on the webpage
+                successMessageElement.textContent = errorMessage;
+                successMessageElement.style.color = "red";
+                successMessageElement.style.display = "block";
+            });
+    }
+});
