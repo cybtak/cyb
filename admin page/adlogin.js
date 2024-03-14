@@ -72,7 +72,6 @@ loginBtn.addEventListener("click", function () {
     }
 });
 
-
 // ... (your existing code)
 
 loginBtn.addEventListener("click", function () {

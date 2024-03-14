@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-import { getDatabase, ref, get, remove } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -44,20 +44,8 @@ function displayUser(userData, userId) {
         <td>${userData.Address}</td>
         <td>${userData['Phone Number']}</td>
         <td>${userData.Pincode}</td>
-        <td><button class="delete-btn" data-id="${userId}">Delete</button></td>
     `;
     userDetailsTable.appendChild(userRow);
-}
-
-// Function to delete user data from the database
-function deleteUser(userId) {
-    const userRef = ref(db, `Users/${userId}`);
-    try {
-        // Remove the user data from the database
-        remove(userRef);
-    } catch (error) {
-        console.error("Error deleting user:", error);
-    }
 }
 
 // Fetch users when the page loads
@@ -67,16 +55,4 @@ fetchUsers();
 document.getElementById('addUserBtn').addEventListener('click', function () {
     // Redirect to a page where you can add a new user
     window.location.href = 'add_user.html';
-});
-
-// Add event listener for delete buttons
-document.addEventListener('click', function (event) {
-    if (event.target.classList.contains('delete-btn')) {
-        const userId = event.target.getAttribute('data-id');
-        if (confirm("Are you sure you want to delete this user?")) {
-            deleteUser(userId);
-            // Remove the row from the table
-            event.target.closest('tr').remove();
-        }
-    }
 });

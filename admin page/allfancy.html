@@ -32,7 +32,8 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        th, td {
+        th,
+        td {
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
@@ -49,11 +50,27 @@
             border: none;
             border-radius: 4px;
             padding: 6px 12px;
+            margin-right: 5px;
         }
 
         .delete-btn:hover {
             background-color: #c82333;
         }
+
+        .complete-btn {
+            cursor: pointer;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 6px 12px;
+            margin-right: 5px;
+        }
+
+        .complete-btn:hover {
+            background-color: #218838;
+        }
+        
     </style>
 </head>
 
@@ -61,26 +78,31 @@
 
     <h1>Fancy Requests</h1>
 
+    <!-- Add a search input field -->
+    <input type="text" id="searchInput" placeholder="Search...">
+
     <table id="requestDetails">
+        <!-- Table header -->
         <thead>
             <tr>
                 <th>#</th>
                 <th>Name</th>
                 <th>Username</th>
-                <th>Fancy Number Selected</th>
-                <th>Fancy Number Selected</th>
+                <th>fancy number selected</th>
+                <th>fancy number selected</th>
                 <th>Address</th>
                 <th>Phone Number</th>
                 <th>Pincode</th>
                 <th>User ID</th>
+                <th>Status</th>
                 <th>Action</th>
             </tr>
         </thead>
+        <!-- Table body -->
         <tbody>
             <!-- Table rows will be dynamically added here -->
         </tbody>
     </table>
-    click here to see agent<a href="/agents/allfancy.html"> wise </a>
 
     <script type="module" src="allfancy.js"></script>
 </body>
