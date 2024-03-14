@@ -15,16 +15,17 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
         }
 
         h1 {
             color: #333;
+            margin-top: 20px;
         }
 
         table {
             border-collapse: collapse;
-            width: 100%;
+            width: 90%;
             max-width: 800px;
             margin-top: 20px;
             background-color: #fff;
@@ -50,10 +51,23 @@
             border-radius: 4px;
             padding: 6px 12px;
             margin-bottom: 10px;
+            text-decoration: none; /* Added to remove underlines */
         }
 
         .add-user-btn:hover, .delete-btn:hover {
             background-color: #0056b3;
+        }
+        
+        /* Adjustments for mobile */
+        @media screen and (max-width: 767px) {
+            h1 {
+                margin-top: 10px;
+                font-size: 24px;
+            }
+
+            table {
+                width: 95%;
+            }
         }
     </style>
 </head>
@@ -61,7 +75,7 @@
 <body>
     <h1>Users</h1>
 
-    <button class="add-user-btn" id="addUserBtn"><a href="registration.html"> add New User</a></button>
+    <button class="add-user-btn" id="addUserBtn"><a href="registration.html">Add New User</a></button>
 
     <table id="userDetails">
         <thead>
@@ -79,7 +93,8 @@
             <!-- Table rows will be dynamically added here -->
         </tbody>
     </table>
-    show agent <a href="/agents/allusers.html">wise</a>
+    
+    <p>Show agents <a href="/agents/allusers.html">wise</a></p>
 
     <script type="module" src="allusers.js"></script>
 </body>
