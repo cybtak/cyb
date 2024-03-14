@@ -46,3 +46,13 @@ const app = initializeApp(firebaseConfig);
               });
           
          // Assuming 'Users' is the collection name
+         firebase.initializeApp(firebaseConfig);
+
+document.getElementById('logoutButton').addEventListener('click', function() {
+    firebase.auth().signOut().then(() => {
+        console.log('User signed out successfully');
+        window.location.href = "index.html"; // Redirect to the login page after logout
+    }).catch((error) => {
+        console.error('Sign out error:', error);
+    });
+});
