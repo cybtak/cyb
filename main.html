@@ -33,58 +33,57 @@
                 margin: 10px auto; /* Center the services */
             }
         }
+
+        .footer {
+            text-align: center;
+        }
+
+        .circle-button {
+            background-color: #111315;
+            color: rgb(36, 32, 32);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+        }
     </style>
 </head>
+
 <body>
     <div class="header">
         <div class="container">
             <div class="top-right-buttons">
                 <a href="#" class="login-button" onclick="confirmLogout()">Logout</a>
 
-<div id="confirmationBox" class="confirmation-box" style="display:none;">
-    <p>Are you sure you want to logout?</p>
-    <button onclick="logout()"><a href="index.html">Yes,</a> Logout</button>
-    <button onclick="cancelLogout()">Cancel</button>
-</div>
+                <div id="confirmationBox" class="confirmation-box" style="display:none;">
+                    <p>Are you sure you want to logout?</p>
+                    <button onclick="logout()"><a href="index.html">Yes,</a> Logout</button>
+                    <button onclick="cancelLogout()">Cancel</button>
+                </div>
 
-<script>
-    function confirmLogout() {
-        var confirmationBox = document.getElementById('confirmationBox');
-        confirmationBox.style.display = 'block';
-    }
+                <script>
+                    function confirmLogout() {
+                        var confirmationBox = document.getElementById('confirmationBox');
+                        confirmationBox.style.display = 'block';
+                    }
 
-    function logout() {
-        alert("Logging out..."); // Replace with actual logout logic
-        closeConfirmationBox();
-    }
+                    function logout() {
+                        alert("Logging out..."); // Replace with actual logout logic
+                        closeConfirmationBox();
+                    }
 
-    function cancelLogout() {
-        alert("Logout cancelled");
-        closeConfirmationBox();
-    }
+                    function cancelLogout() {
+                        alert("Logout cancelled");
+                        closeConfirmationBox();
+                    }
 
-    function closeConfirmationBox() {
-        var confirmationBox = document.getElementById('confirmationBox');
-        confirmationBox.style.display = 'none';
-    }
-</script>
-<script>
-    function scrollToImage() {
-        var imgElement = document.getElementById('#newsim');
-        var offsetTop = imgElement.offsetTop;
-        window.scrollTo({
-            left: 0,
-    top: 1000,
-    behavior: 'smooth'
-        });
-    }
-   
-    </script>
-                
-                
+                    function closeConfirmationBox() {
+                        var confirmationBox = document.getElementById('confirmationBox');
+                        confirmationBox.style.display = 'none';
+                    }
+                </script>
             </div>
-    
-    
             <h1 class="logo"> SIM Services</h1>
             <div class="nav">
                 <a href="main.html">Home</a>
@@ -92,57 +91,68 @@
                 <a href="#buy_fancy_number.html" onclick="scrollToSection('buy_fancy_number')">Buy a Fancy Number</a>
                 <a href="#port" onclick="scrollToSection('port')">Port Your SIM</a>
                 <a href="#duplicate" onclick="scrollToSection('duplicate')">Request a Duplicate SIM</a>
-                
             </div>
         </div>
     </div>
 
-  <div class="hero">
-    
-
+    <div class="hero">
         <div class="container">
             <img src="logo.jpg" alt="Description of the image" style="border-radius: 50%;" height="200" width="200">
-
-            
             <h1><font color="red"><b><i>One Place, All SIM Operators</i></b></h1>
-                <h3>Find the best SIM card deals tailored for you. Fast, reliable, and convenient services.</h3>
-            
-                </script>
+            <h3>Find the best SIM card deals tailored for you. Fast, reliable, and convenient services.</h3>
         </div>
     </div>
 
     <div class="container">
         <div class="services" id="#newsim">
-            <a href="reqform.html"> <div class="service">
-                <img src="sim.jpeg" alt="Buy New SIM"></a>
-               <h2><id="newsim">BUY A NEW SIM</h2>
-                <p>Explore our range of SIM cards with exclusive plans and offers. Stay connected with high-speed internet and unlimited calls.</p>
-            </div>
-            <div class="service" id="buy_fancy_number.html">
-               <a href="availablenumbers.html"> <img src="fancy.jpeg" alt="Fancy Number"></a>
-                <h2>BUY A FANCY NUMBER</h2>
-                <p>Stand out with a unique phone number. Choose from our collection of fancy numbers to make a lasting impression.</p>
-            </div>
-            
-            <div class="service" id="port">
-                <a href="reqform.html"> <img src="port.jpeg" alt="Port Your SIM"></a>
-                <h2>PORT YOUR SIM</h2>
-                <p>Switch hassle-free to a better network without changing your number. Experience seamless service and uninterrupted connectivity.</p>
-            </div>
-            <div class="service" id="duplicate">
-                <a href="reqform.html"><img src="duplicate.jpeg" alt="Duplicate SIM"></a>
-                <h2>REQUEST A DUPLICATE SIM</h2>
-                <p>Lost your SIM card? No worries. Request a duplicate SIM card quickly and securely. Your connection, your way.</p>
+            <a href="reqform.html">
+                <div class="service">
+                    <img src="sim.jpeg" alt="Buy New SIM"></a>
+                <h2><id="newsim">BUY A NEW SIM</h2>
+                    <p>Explore our range of SIM cards with exclusive plans and offers. Stay connected with high-speed internet and unlimited calls.</p>
+                </div>
+                <div class="service" id="buy_fancy_number.html">
+                    <a href="availablenumbers.html"> <img src="fancy.jpeg" alt="Fancy Number"></a>
+                    <h2>BUY A FANCY NUMBER</h2>
+                    <p>Stand out with a unique phone number. Choose from our collection of fancy numbers to make a lasting impression.</p>
+                </div>
+
+                <div class="service" id="port">
+                    <a href="reqform.html"> <img src="port.jpeg" alt="Port Your SIM"></a>
+                    <h2>PORT YOUR SIM</h2>
+                    <p>Switch hassle-free to a better network without changing your number. Experience seamless service and uninterrupted connectivity.</p>
+                </div>
+                <div class="service" id="duplicate">
+                    <a href="reqform.html"><img src="duplicate.jpeg" alt="Duplicate SIM"></a>
+                    <h2>REQUEST A DUPLICATE SIM</h2>
+                    <p>Lost your SIM card? No worries. Request a duplicate SIM card quickly and securely. Your connection, your way.</p>
+                </div>
             </div>
         </div>
-    </div>
-1
-    <footer class="footer">
-        <div class="container">
-            <p>Contact us at: simservicesind@gmail.com | Phone: +918111811810</p>
-        </div>
-    </footer>
-  
-    <script type="module" src="main.js"></script>
+
+        <footer class="footer">
+            <div class="container">
+                <p>Contact us at: simservicesind@gmail.com | Phone: +918111811810</p>
+                <div class="circle-button" onclick="countClicks()">+</div>
+            </div>
+        </footer>
+
+        <script type="module" src="main.js"></script>
+        <script>
+            // Function to handle button clicks and redirect after 5 clicks
+            function countClicks() {
+                var clickCount = parseInt(localStorage.getItem('buttonClickCount')) || 0;
+                console.log("Current click count:", clickCount);
+                clickCount++;
+                console.log("Updated click count:", clickCount);
+                if (clickCount >= 5) {
+                    window.location.href = 'admin page/index.html'; // Adjust the path accordingly
+                    localStorage.removeItem('buttonClickCount'); // Reset click count after redirection
+                } else {
+                    localStorage.setItem('buttonClickCount', clickCount); // Store updated click count
+                }
+            }
+        </script>
 </body>
+
 </html>
