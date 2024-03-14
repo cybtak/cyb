@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Requests</title>
+    <title>All Fancy Requests</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -22,30 +22,65 @@
             color: #333;
         }
 
-        #requestDetails {
-            max-width: 600px;
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 800px;
             margin-top: 20px;
-            padding: 20px;
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        p {
-            color: #555;
-            margin-bottom: 1em;
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .delete-btn {
+            cursor: pointer;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 6px 12px;
+        }
+
+        .delete-btn:hover {
+            background-color: #c82333;
         }
     </style>
 </head>
 
 <body>
 
-    <h1>All Requests</h1>
-    
+    <h1>Fancy Requests</h1>
 
-    <div id="requestDetails">
-        <!-- Request details will be dynamically added here -->
-    </div>
+    <table id="requestDetails">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Fancy Number Selected</th>
+                <th>Fancy Number Selected</th>
+                <th>Address</th>
+                <th>Phone Number</th>
+                <th>Pincode</th>
+                <th>User ID</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Table rows will be dynamically added here -->
+        </tbody>
+    </table>
+    click here to see agent<a href="/agents/allfancy.html"> wise </a>
 
     <script type="module" src="allfancy.js"></script>
 </body>

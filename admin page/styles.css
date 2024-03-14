@@ -113,11 +113,21 @@ footer {
       transform: translateY(0);
       opacity: 1;
     }
+    font-family: ,sans-serif;
+}
+
+header {
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+h1, h2 {
+    margin-bottom: 10px;
+}
+
+nav ul {
+    list-style: none;
   }
   
-  
-
-
-
-
+  /* Add your custom styles here to enhance the visual appeal of the webpage */
 

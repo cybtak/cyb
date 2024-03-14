@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Key Page</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        p {
+            margin-top: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1><font color="red">Secure Zone</h1></font>
+        <p>Please enter the security key to access:</p>
+        <form id="keyForm">
+            <input type="password" id="securityKey" placeholder="Enter security key">
+            <button type="submit">Submit</button>
+        </form>
+        <p>Only authorized users are allowed beyond this point.</p>
+    </div>
+
+    <script>
+        document.getElementById("keyForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            var securityKey = document.getElementById("securityKey").value;
+            var hashedKey = sha256(securityKey); // Hash the key using SHA-256
+            
+            if (hashedKey === "f2b2ae71971e78d6aefb3869e0f38f2dd11ac3714d33b367b11a5c27a8aa7a2a") { 
+                window.location.href = "admin.html"; // Redirect to the original page
+            } else {
+                alert("Invalid security key. Please try again.");
+            }
+        });
+    </script>
+</body>
+
+</html>

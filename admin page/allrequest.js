@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+import { getDatabase, ref, get, remove } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -21,44 +21,59 @@ const auth = getAuth();
 const db = getDatabase();
 const usersRef = ref(db, 'Requests');
 
-
-
 async function fetchUsers() {
     try {
-      const snapshot = await get(usersRef);
-      snapshot.forEach((childSnapshot) => {
-        const userData = childSnapshot.val();
-        // Check if the user data contains the required keys
-        if (userData.hasOwnProperty('Name') && 
-            userData.hasOwnProperty('Telecom Provider') && 
-            userData.hasOwnProperty('Address') && 
-            userData.hasOwnProperty('Phone Number') && 
-            userData.hasOwnProperty('Pincode')) {
-          displayUser(userData);
-        }
-      });
+        const snapshot = await get(usersRef);
+        snapshot.forEach((childSnapshot) => {
+            const userData = childSnapshot.val();
+            const userId = childSnapshot.key;
+            displayUser(userData, userId);
+        });
     } catch (error) {
-      console.error("Error fetching users:", error);
+        console.error("Error fetching users:", error);
     }
-  }
+}
 
-
-  function displayUser(userData) {
-    const requestDetailsDiv = document.getElementById('requestDetails');
-    const userElement = document.createElement('div');
-    userElement.innerHTML = `
-      <p><strong>Name:</strong> ${userData.Name}</p>
-            <p><strong>Username:</strong> ${userData.Username}</p>
-      <p><strong>Telecom Provider:</strong> ${userData['Telecom Provider']}</p>
-            <p><strong>Request Type:</strong> ${userData['Request Type']}</p>
-      <p><strong>Address:</strong> ${userData.Address}</p>
-      <p><strong>Phone Number:</strong> ${userData['Phone Number']}</p>
-      <p><strong>Pincode:</strong> ${userData.Pincode}</p>
-            <p><strong>User ID :</strong> ${userData.Uid}</p>
-      <hr>
+function displayUser(userData, userId) {
+    const requestDetailsTable = document.getElementById('requestDetails').getElementsByTagName('tbody')[0];
+    const userRow = document.createElement('tr');
+    userRow.innerHTML = `
+        <td>${requestDetailsTable.rows.length + 1}</td>
+        <td>${userData.Name}</td>
+        <td>${userData.Username}</td>
+        <td>${userData['Telecom Provider']}</td>
+        <td>${userData['Request Type']}</td>
+        <td>${userData.Address}</td>
+        <td>${userData['Phone Number']}</td>
+        <td>${userData.Pincode}</td>
+        <td>${userData.Uid}</td>
+        <td><button class="delete-btn" data-id="${userId}">Delete</button></td>
     `;
-    requestDetailsDiv.appendChild(userElement);
-  }
-  
-  // Fetch users when the page loads
-  fetchUsers();
+    requestDetailsTable.appendChild(userRow);
+}
+
+// Function to delete user data from the database
+function deleteUser(userId) {
+    const userRef = ref(db, `Requests/${userId}`);
+    try {
+        // Remove the user data from the database
+        remove(userRef);
+    } catch (error) {
+        console.error("Error deleting user:", error);
+    }
+}
+
+// Attach event listener to handle delete button clicks
+document.addEventListener('click', function (event) {
+    if (event.target.classList.contains('delete-btn')) {
+        const userId = event.target.getAttribute('data-id');
+        if (confirm("Are you sure you want to delete this user?")) {
+            deleteUser(userId);
+            // Remove the row from the table
+            event.target.closest('tr').remove();
+        }
+    }
+});
+
+// Fetch users when the page loads
+fetchUsers();
