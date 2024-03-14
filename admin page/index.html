@@ -4,87 +4,327 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Security Key Page</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"></script>
+    <title>Indian SIM Services</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: url('bg3.jpg') no-repeat center center/cover;
+            background-color: #d4d2bf;
+            color: #fff;
         }
 
         .container {
-            max-width: 400px;
-            margin: 50px auto;
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        h1 {
-            color: #333;
-        }
-
-        input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-size: 16px;
-        }
-
-        button[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            margin-top: 20px;
-            background-color: #4CAF50;
+        .header {
+            background-color: #121212;
             color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s;
+            padding: 15px 0;
+            text-align: center;
         }
 
-        button[type="submit"]:hover {
-            background-color: #45a049;
+        .logo {
+            margin: 0;
+            font-size: 36px;
         }
 
-        p {
+        .nav {
+            text-align: center;
             margin-top: 20px;
-            color: #666;
+        }
+
+        .nav a {
+            color: #bbb;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #ff7e5f;
+        }
+
+        .hero {
+            background: url('banner4.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px; /* Adjust padding for smaller screens */
+            animation: fadeIn 2s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #343332;
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #3c3cd1;
+        }
+
+        .services {
+            padding: 50px 20px; /* Adjust padding for smaller screens */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .service {
+            text-align: center;
+            margin: 20px 0;
+            background-color: #e6e5e0;
+            color: #000;
+            padding: 20px;
+            border-radius: 5px;
+            width: calc(45% - 40px); /* Adjust width for smaller screens */
+            max-width: 300px; /* Limit maximum width for better responsiveness */
+        }
+
+        .service img {
+            width: 100%;
+            max-width: 200px; /* Adjust max-width for smaller screens */
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .footer {
+            background-color: #121212;
+            color: #bbb;
+            text-align: center;
+            padding: 15px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .animated-image {
+            width: 200px; /* Adjust the width as needed */
+            height: 200px;
+            position: relative;
+            animation: fade 2s linear forwards;
+        }
+
+        @keyframes moveRight {
+            0% {
+                left: 0;
+            }
+
+            100% {
+                left: 100px; /* Adjust the distance to move to the right */
+            }
+        }
+
+        @keyframes fallAndStay {
+            0% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .falling-text {
+            animation: fallAndStay 2s ease-in-out forwards;
+            position: relative;
+            top: 0;
+        }
+
+        /* Add this CSS to your existing styles */
+        .top-right-buttons {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+        }
+
+        .login-button,
+        .register-button {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            padding: 10px 15px;
+            border-radius: 10px;
+            background-color: #3b37ca;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-button:hover,
+        .register-button:hover {
+            background-color: #e36653;
+        }
+
+        .img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto; /* Center the image horizontally */
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        /* Styles for the modal */
+        .modal {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            text-align: center;
+        }
+
+        /* Close button style */
+        .close-btn {
+            cursor: pointer;
+            color: #333;
+            font-size: 20px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
         }
     </style>
+
 </head>
 
 <body>
+    <div class="header">
+        <div class="container">
+            <div class="top-right-buttons">
+                <a href="login.html" class="login-button">Login</a>
+                <a href="registration.html" class="register-button">Register</a>
+                <a href="#" class="register-button" id="agentLink">Agent</a>
+                <div class="overlay" id="agentOverlay">
+                    <div class="modal">
+                        <span class="close-btn" onclick="closeAgentModal()">&times;</span>
+                        <p><font color="black">Contact admin for agent login.</p>
+                        <p>Admin's <a href="https://wa.me/+918111811810">WhatsApp</a> </p>
+                        <p>If you want to work in SIM services, contact the admin.</p></font>
+                        <p><a href="index.html" class="register-button" id="agentLink">close</a></p>
+                    </div>
+                </div>
+                <script>
+                    document.getElementById("agentLink").addEventListener("click", function () {
+                        // Show the overlay and modal
+                        document.getElementById("agentOverlay").style.display = "flex";
+                    });
+
+                    // Function to close the modal
+                    function closeAgentModal() {
+                        document.getElementById("agentOverlay").style.display = "none";
+                    }
+                </script>
+            </div>
+            <br><br>
+            <h1 class="logo"> SIM Services</h1>
+            <div class="nav">
+                <a href="index.html">Home</a>
+                <a href="#" onclick="showPopup('Please register/login first before accessing this feature.')">Buy a New SIM</a>
+                <a href="#" onclick="showPopup('Please register/login first before accessing this feature.')">Buy a Fancy Number</a>
+                <a href="#" onclick="showPopup('Please register/login first before accessing this feature.')">Port Your SIM</a>
+                <a href="#" onclick="showPopup('Please register/login first before accessing this feature.')">Request a Duplicate SIM</a>
+            </div>
+
+            <script>
+                function showPopup(url) {
+                    // Replace this with your popup logic
+                    alert(" " + url);
+                    // If you want to navigate after showing the popup, you can use window.location.href
+                    // window.location.href = url;
+                }
+            </script>
+
+        </div>
+    </div>
+
+    <div class="hero">
+        <div class="container">
+            
+            <h1><font color="red"><b><i>One Place, All SIM Operators</i></b></h1>
+            <h3>Find the best SIM card deals tailored for you. Fast, reliable, and convenient services.</h3>
+            <a href="registration.html" class="cta-button">Get Started</a>
+        </div>
+    </div>
+
     <div class="container">
-        <h1><font color="red">Secure Zone</h1></font>
-        <p>Please enter the security key to access:</p>
-        <form id="keyForm">
-            <input type="password" id="securityKey" placeholder="Enter security key">
-            <button type="submit">Submit</button>
-        </form>
-        <p>Only authorized users are allowed beyond this point.</p>
+        <div class="services">
+            <div class="service">
+                <div class="message-box" onclick="displayMessage('registration.html');">
+                    <img src="sim.jpeg" alt="Buy New SIM">
+                    <h2 id="newsim">BUY A NEW SIM</h2>
+                    <p>Explore our range of SIM cards with exclusive plans and offers. Stay connected with high-speed internet and unlimited calls.</p>
+                </div>
+            </div>
+
+            <div class="service">
+                <div class="message-box" onclick="displayMessage('registration.html');">
+                    <img src="fancy.jpeg" alt="Fancy Number">
+                    <h2>BUY A FANCY NUMBER</h2>
+                    <p>Stand out with a unique phone number. Choose from our collection of fancy numbers to make a lasting impression.</p>
+                </div>
+            </div>
+
+            <div class="service">
+                <div class="message-box" onclick="displayMessage('registration.html');">
+                    <img src="port.jpeg" alt="Port Your SIM">
+                    <h2>PORT YOUR SIM</h2>
+                    <p>Switch hassle-free to a better network without changing your number. Experience seamless service and uninterrupted connectivity.</p>
+                </div>
+            </div>
+
+            <div class="service">
+                <div class="message-box" onclick="displayMessage('registration.html');">
+                    <img src="duplicate.jpeg" alt="Duplicate SIM">
+                    <h2>REQUEST A DUPLICATE SIM</h2>
+                    <p>Lost your SIM card? No worries. Request a duplicate SIM card quickly and securely. Your connection, your way.</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
-        document.getElementById("keyForm").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent form submission
-            
-            var securityKey = document.getElementById("securityKey").value;
-            var hashedKey = sha256(securityKey); // Hash the key using SHA-256
-            
-            if (hashedKey === "f2b2ae71971e78d6aefb3869e0f38f2dd11ac3714d33b367b11a5c27a8aa7a2a") { 
-                window.location.href = "admin.html"; // Redirect to the original page
-            } else {
-                alert("Invalid security key. Please try again.");
-            }
-        });
+        function displayMessage(url) {
+            alert("Please register/login first before accessing this feature.");
+            // Optionally, you can redirect to the registration page using window.location.href
+            // window.location.href = url;
+        }
     </script>
+    <footer class="footer">
+        <div class="container">
+            <p>Contact us: nyzsimservices@gmail.com | Phone: +918111811810</p>
+        </div>
+    </footer>
 </body>
 
 </html>
