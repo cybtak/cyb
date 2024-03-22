@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0.11">
     <title>All Fancy Requests</title>
     <style>
         body {
@@ -75,7 +75,40 @@
 </head>
 
 <body>
+    <label for="refreshSwitch">Auto Refresh:</label>
+    <label class="switch">
+        <input type="checkbox" id="refreshSwitch" checked> <!-- Set default as checked -->
+        <span class="slider"></span>
+    </label>
 
+    <script>
+        // Function to refresh the page
+        function refreshPage() {
+            location.reload();
+        }
+
+        // Function to toggle auto-refresh
+        function toggleRefresh() {
+            var refreshSwitch = document.getElementById("refreshSwitch");
+            if (refreshSwitch.checked) {
+                // Start auto-refresh
+                refreshInterval = setInterval(refreshPage, 20000); // Refresh every 10 seconds (10000 milliseconds)
+                localStorage.setItem("refreshEnabled", "true"); // Store state in local storage
+            } else {
+                // Stop auto-refresh
+                clearInterval(refreshInterval);
+                localStorage.setItem("refreshEnabled", "false"); // Store state in local storage
+            }
+        }
+
+        // Event listener for switch change
+        document.getElementById("refreshSwitch").addEventListener("change", toggleRefresh);
+
+        // Initial toggle state based on local storage
+        if (localStorage.getItem("refreshEnabled") === "true") {
+            toggleRefresh(); // Enable auto-refresh if previously enabled
+        }
+    </script>
     <h1>Fancy Requests</h1>
 
     <!-- Add a search input field -->
