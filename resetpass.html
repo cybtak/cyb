@@ -86,7 +86,7 @@
 
             firebase.auth().sendPasswordResetEmail(email)
                 .then(() => {
-                    alert("Password reset email sent!");
+                    alert("check your mail");
                     resetForm.reset();
                 })
                 .catch((error) => {
